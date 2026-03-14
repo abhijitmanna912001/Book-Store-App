@@ -38,7 +38,7 @@ export default function Signup() {
       <View style={styles.container}>
         <View style={styles.card}>
           <View style={styles.header}>
-            <Text style={styles.title}>BookWorm 🪱</Text>
+            <Text style={styles.title}>BookWorm 🐛</Text>
             <Text style={styles.subtitle}>Share your favourite reads</Text>
           </View>
 
