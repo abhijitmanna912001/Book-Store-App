@@ -40,10 +40,16 @@ router.post("/register", async (req, res) => {
 
     const profileImage = `https://api.dicebear.com/9.x/avataaars/svg?seed=${username}`;
 
-    const user = new User({ email, username, password, profileImage });
-    await user.save();
+    const user = new User({
+      email,
+      username,
+      password,
+      profileImage,
+    });
 
+    await user.save();
     const token = generateToken(user._id);
+
     res.status(201).json({
       token,
       user: {
@@ -51,6 +57,7 @@ router.post("/register", async (req, res) => {
         username: user.username,
         email: user.email,
         profileImage: user.profileImage,
+        createdAt: user.createdAt,
       },
     });
   } catch (error) {
@@ -85,6 +92,7 @@ router.post("/login", async (req, res) => {
         username: user.username,
         email: user.email,
         profileImage: user.profileImage,
+        createdAt: user.createdAt,
       },
     });
   } catch (error) {
